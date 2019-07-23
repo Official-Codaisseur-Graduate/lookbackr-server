@@ -41,7 +41,7 @@ module.exports = RoomFactory = stream => {
     User.findByPk(user)
       .then(user =>{
         user
-        .update(user.retroId = id)
+        .update({retroId: id})
         .then(user => JSON.stringify(user))
         .then(user => {
           stream.updateInit(user)
