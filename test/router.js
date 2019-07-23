@@ -193,7 +193,13 @@ module.exports = testFactory = (stream) => {
     router.get('/test', (req, res, next)=> {
         console.log('WHAT IS IN REQUEST:', req)
         res.status(200).json(testData)
-        .catch(error => next(error))
+    })
+
+    router.get('/test/:id', (req, res, next)=> {
+        const id = req.params.id
+        const index = id -1
+        console.log('WHAT IS IN REQUEST:', req)
+        res.status(200).json(testData[index])
     })
     return router
 
