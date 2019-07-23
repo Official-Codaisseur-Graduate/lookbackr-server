@@ -35,9 +35,9 @@ module.exports = RoomFactory = stream => {
   });
 
   router.put("/rooms/:id", (req, res, next) => {
-    const id = req.params.id
+    const id = parseInt(req.params.id)
     const user = req.body.user.id
-    console.log('REQ???', req.body)
+    console.log('REQ???', id)
     User.findByPk(user)
       .then(user =>{
         user
