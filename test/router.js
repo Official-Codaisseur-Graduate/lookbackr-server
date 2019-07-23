@@ -2,6 +2,7 @@ const { Router } = require('express')
 const Sse = require('json-sse')
 
 module.exports = testFactory = (stream) => {
+    const router = new Router()
     const testData = [
         {
             id: 1,
@@ -28,7 +29,7 @@ module.exports = testFactory = (stream) => {
                 {
                     id: 1,
                     type: 'sad',
-                    text: 'Sad about somehting.',
+                    text: 'Sad about something.',
                     userId: 1,
                     retroId: 1
                 },
@@ -49,7 +50,7 @@ module.exports = testFactory = (stream) => {
                 {
                     id: 4,
                     type: 'sad',
-                    text: 'Sad about somehting.',
+                    text: 'Sad about something.',
                     userId: 2,
                     retroId: 1
                 },
@@ -70,7 +71,7 @@ module.exports = testFactory = (stream) => {
                 {
                     id: 7,
                     type: 'sad',
-                    text: 'Sad about somehting.',
+                    text: 'Sad about something.',
                     userId: 3,
                     retroId: 1
                 },
@@ -93,7 +94,7 @@ module.exports = testFactory = (stream) => {
         {
             id: 2,
             name: 'retro2',
-            description: 'Retrospective of group awesome',
+            description: 'Retrospective of group amazing',
             users: [
                 {
                     id: 4,
@@ -115,7 +116,7 @@ module.exports = testFactory = (stream) => {
                 {
                     id: 11,
                     type: 'sad',
-                    text: 'Sad about somehting.',
+                    text: 'Sad about something.',
                     userId: 4,
                     retroId: 2
                 },
@@ -136,7 +137,7 @@ module.exports = testFactory = (stream) => {
                 {
                     id: 14,
                     type: 'sad',
-                    text: 'Sad about somehting.',
+                    text: 'Sad about something.',
                     userId: 5,
                     retroId: 2
                 },
@@ -157,7 +158,7 @@ module.exports = testFactory = (stream) => {
                 {
                     id: 17,
                     type: 'sad',
-                    text: 'Sad about somehting.',
+                    text: 'Sad about something.',
                     userId: 6,
                     retroId: 2
                 },
@@ -178,9 +179,24 @@ module.exports = testFactory = (stream) => {
             ]
         }
     ]
-    router.get('test-route', (req, res, next)=> {
+    const json = JSON.stringify(testData)
+    stream.updateInit(json)
+    
+    router.get('/test-stream', (request, response, next)=> {
+        
+        //res.status(200).json(testData)
+        stream.init(request, response)
+        stream.send(json)
+        console.log('STREAM', stream.initial)
+    })
+
+    router.get('/test', (req, res, next)=> {
+        console.log('WHAT IS IN REQUEST:', req)
         res.status(200).json(testData)
         .catch(error => next(error))
     })
+    return router
+    //.catch(error => next(error))
+
 }
 
