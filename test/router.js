@@ -196,7 +196,6 @@ module.exports = testFactory = (stream) => {
         .catch(error => next(error))
     })
     return router
-    //.catch(error => next(error))
 
 }
 
