@@ -3,7 +3,7 @@ const databaseUrl = process.env.DATABASE_URL || 'postgres://postgres:secret@loca
 const sequelize = new Sequelize(databaseUrl)
 
 sequelize   
-  .sync()
+  .sync({force:true})
   .then(() => console.log('Database schema has been updated'))
   .catch(console.error)
 
