@@ -7,8 +7,7 @@ const router = new Router()
 router.post("/users", (req, res, next) => {
     const user = {username: req.body.username}
     User.create(user).then(user => {
-      res.status(201).send({ 
-          "user": user });
+      res.status(201).send(user);
     });
   });
 
