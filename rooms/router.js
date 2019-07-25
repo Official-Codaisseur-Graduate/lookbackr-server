@@ -39,18 +39,30 @@ module.exports = RoomFactory = stream => {
     const user = req.body.user.id
     console.log('REQUEST BODY?????????????', req.body)
     User.findByPk(user)
-      .then(user =>{
+      .then(user => {
         user
-        .update({retroId: id})
+          .update({ retroId: id })
+          .then(user => {
+            const updatedUser = user
+            Room
+              .findAll()
+              .then(rooms => JSON.stringify(rooms))
+              .then(rooms => {
+                stream.updateInit(rooms)
+                stream.send(rooms)
+              })
+              .then(() => res.send(updatedUser))
+          })
+        /*
         .then(user => JSON.stringify(user))
         .then(user => {
           stream.updateInit(user)
           stream.send(user)
         })
         .then(() => res.send(user))
-
+        */
       })
-      
+
       .catch(err => next(err))
   })
 
