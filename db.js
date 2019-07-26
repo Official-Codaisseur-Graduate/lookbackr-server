@@ -6,5 +6,5 @@ sequelize
   .sync({force: true})
   .then(() => console.log('Database schema has been updated'))
   .catch(console.error)
-
+  
 module.exports = sequelize
