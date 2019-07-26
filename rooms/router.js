@@ -10,7 +10,8 @@ module.exports = RoomFactory = stream => {
   const router = Router();
 
   router.get("/stream", (req, res, next) => {
-    Room.findAll({ include: [User, Card] })
+    Room
+      .findAll({ include: [User, Card] })
       .then(rooms => {
         const json = JSON.stringify(rooms);
         stream.updateInit(json);
@@ -19,31 +20,30 @@ module.exports = RoomFactory = stream => {
       .catch(err => next(err))
   });
 
-
-  router.get('/room/:id', (req, res, next) => {
-    const id = parseInt(req.params.id)
-    Room.findByPk(id).then(room => {
-      res.send(room)
-    }).catch(err => next(err))
-  })
-
-  router.get('/stream/:id/cards', (req, res, next) => {
-    const id = parseInt(req.params.id)
-    Card.findAll({
-      where: {
-        retroId: id
-      }
-    }).then(cards => {
-      const json = JSON.stringify(cards)
-      stream.updateInit(json)
-      stream.init(req, res)
-    }).catch(err => next(err))
+  router.post('/cards', (req, res, next) => {
+    Card
+      .create(req.body)
+      .then(card => {
+        Room
+          .findAll({ include: [User, Card] })
+          .then(rooms => JSON.stringify(rooms))
+          .then(rooms => {
+            stream.updateInit(rooms)
+            stream.send(rooms)
+          })
+          .then(() => {
+            res.status(201).send(card)
+          })
+      })
+      .catch(error => next(error))
   })
 
   router.post("/rooms", (req, res, next) => {
-    Room.create(req.body)
+    Room
+      .create(req.body)
       .then(room => {
-        Room.findAll()
+        Room
+          .findAll({ include: [User, Card] })
           .then(rooms => JSON.stringify(rooms))
           .then(rooms => {
             stream.updateInit(rooms)
@@ -54,18 +54,19 @@ module.exports = RoomFactory = stream => {
       });
   });
 
-  router.put("/rooms/:id", (req, res, next) => {
+  router.put("/enter-room/:id", (req, res, next) => {
     const id = parseInt(req.params.id)
     const user = req.body.user.id
-    console.log('REQUEST BODY?????????????', req.body)
-    User.findByPk(user)
+    console.log('REQUEST BODY USER?????????????', req.body)
+    User
+      .findByPk(user)
       .then(user => {
         user
           .update({ retroId: id })
           .then(user => {
             const updatedUser = user
             Room
-              .findAll()
+              .findAll({ include: [User, Card] })
               .then(rooms => JSON.stringify(rooms))
               .then(rooms => {
                 stream.updateInit(rooms)
@@ -73,14 +74,43 @@ module.exports = RoomFactory = stream => {
               })
               .then(() => res.send(updatedUser))
           })
-        /*
-        .then(user => JSON.stringify(user))
-        .then(user => {
-          stream.updateInit(user)
-          stream.send(user)
-        })
-        .then(() => res.send(user))
-        */
+      })
+
+      .catch(err => next(err))
+  })
+
+  router.put("/room/:id", (req, res, next) => {
+    const id = parseInt(req.params.id)
+    const user = req.body.user.id
+    console.log('REQUEST BODY UPDATE ROOM?????????????', req.body)
+    User
+      .findByPk(user)
+      .then(user => {
+        user
+          .update({ done: true })
+          .then(user => {
+            Room
+              .findByPk(id, { include: [User] })
+              .then(room => {
+                const checkDone = room.users.every(user => {
+                  return user.done === true
+                })
+                room
+                  .update({ done: checkDone })
+                  .then(() => {
+                    Room
+                      .findAll({ include: [User, Card] })
+                      .then(rooms => JSON.stringify(rooms))
+                      .then(rooms => {
+                        stream.updateInit(rooms)
+                        stream.send(rooms)
+                      })
+                  })
+              })
+              .then(() => {
+                res.status(201).json(user)
+              })
+          })
       })
 
       .catch(err => next(err))
