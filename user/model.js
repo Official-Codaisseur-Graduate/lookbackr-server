@@ -9,6 +9,10 @@ const User = db.define(
             type: Sequelize.STRING,
             field: 'user_username',
             allowNull: false
+        },
+        done: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
         }
     }, {
         timestamps: false,
