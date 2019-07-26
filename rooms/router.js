@@ -10,7 +10,8 @@ module.exports = RoomFactory = stream => {
   const router = Router();
 
   router.get("/stream", (req, res, next) => {
-    Room.findAll({ include: [User, Card] })
+    Room
+      .findAll({ include: [User, Card] })
       .then(rooms => {
         const json = JSON.stringify(rooms);
         stream.updateInit(json);
@@ -20,9 +21,11 @@ module.exports = RoomFactory = stream => {
   });
 
   router.post('/cards', (req, res, next) => {
-    Card.create(req.body)
+    Card
+      .create(req.body)
       .then(card => {
-        Room.findAll()
+        Room
+          .findAll({ include: [User, Card] })
           .then(rooms => JSON.stringify(rooms))
           .then(rooms => {
             stream.updateInit(rooms)
@@ -36,9 +39,11 @@ module.exports = RoomFactory = stream => {
   })
 
   router.post("/rooms", (req, res, next) => {
-    Room.create(req.body)
+    Room
+      .create(req.body)
       .then(room => {
-        Room.findAll()
+        Room
+          .findAll({ include: [User, Card] })
           .then(rooms => JSON.stringify(rooms))
           .then(rooms => {
             stream.updateInit(rooms)
@@ -53,14 +58,15 @@ module.exports = RoomFactory = stream => {
     const id = parseInt(req.params.id)
     const user = req.body.user.id
     console.log('REQUEST BODY USER?????????????', req.body)
-    User.findByPk(user)
+    User
+      .findByPk(user)
       .then(user => {
         user
           .update({ retroId: id })
           .then(user => {
             const updatedUser = user
             Room
-              .findAll()
+              .findAll({ include: [User, Card] })
               .then(rooms => JSON.stringify(rooms))
               .then(rooms => {
                 stream.updateInit(rooms)
@@ -93,7 +99,7 @@ module.exports = RoomFactory = stream => {
                   .update({ done: checkDone })
                   .then(() => {
                     Room
-                      .findAll()
+                      .findAll({ include: [User, Card] })
                       .then(rooms => JSON.stringify(rooms))
                       .then(rooms => {
                         stream.updateInit(rooms)
