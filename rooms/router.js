@@ -10,7 +10,6 @@ module.exports = RoomFactory = stream => {
   const router = Router();
 
   router.get("/stream", (req, res, next) => {
-
     Room.findAll({ include: [User, Card] })
       .then(rooms => {
         const json = JSON.stringify(rooms);
@@ -19,6 +18,27 @@ module.exports = RoomFactory = stream => {
       })
       .catch(err => next(err))
   });
+
+
+  router.get('/room/:id', (req, res, next) => {
+    const id = parseInt(req.params.id)
+    Room.findByPk(id).then(room => {
+      res.send(room)
+    }).catch(err => next(err))
+  })
+
+  router.get('/stream/:id/cards', (req, res, next) => {
+    const id = parseInt(req.params.id)
+    Card.findAll({
+      where: {
+        retroId: id
+      }
+    }).then(cards => {
+      const json = JSON.stringify(cards)
+      stream.updateInit(json)
+      stream.init(req, res)
+    }).catch(err => next(err))
+  })
 
   router.post("/rooms", (req, res, next) => {
     Room.create(req.body)
