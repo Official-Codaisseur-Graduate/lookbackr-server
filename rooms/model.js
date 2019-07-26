@@ -20,6 +20,10 @@ const Retro = db.define(
             type: Sequelize.BOOLEAN,
             defaultValue: true,
             allowNull:false
+        },
+        done: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
         }
     }, {
         timestamps: false,

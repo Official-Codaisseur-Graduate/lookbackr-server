@@ -19,20 +19,20 @@ module.exports = RoomFactory = stream => {
       .catch(err => next(err))
   });
 
-  router.post('/cards', (req, res, next)  => {
-    Card.create(req.body) 
-    .then(card => {
-      Room.findAll()
+  router.post('/cards', (req, res, next) => {
+    Card.create(req.body)
+      .then(card => {
+        Room.findAll()
           .then(rooms => JSON.stringify(rooms))
           .then(rooms => {
             stream.updateInit(rooms)
             stream.send(rooms)
           })
-          .then(()=>{
+          .then(() => {
             res.status(201).send(card)
           })
-    })
-    .catch(error => next(error))
+      })
+      .catch(error => next(error))
   })
 
   router.post("/rooms", (req, res, next) => {
@@ -77,21 +77,31 @@ module.exports = RoomFactory = stream => {
     const id = parseInt(req.params.id)
     const user = req.body.user.id
     console.log('REQUEST BODY UPDATE ROOM?????????????', req.body)
-    User.findByPk(user)
+    User
+      .findByPk(user)
       .then(user => {
         user
           .update({ done: true })
           .then(user => {
             Room
-              .findByPk(id, { include: [User]})
-              .then(room =>{
+              .findByPk(id, { include: [User] })
+              .then(room => {
                 const checkDone = room.users.every(user => {
                   return user.done === true
                 })
                 room
-                  .update({done: checkDone})
+                  .update({ done: checkDone })
+                  .then(() => {
+                    Room
+                      .findAll()
+                      .then(rooms => JSON.stringify(rooms))
+                      .then(rooms => {
+                        stream.updateInit(rooms)
+                        stream.send(rooms)
+                      })
+                  })
               })
-              .then(() =>{
+              .then(() => {
                 res.status(201).json(user)
               })
           })
