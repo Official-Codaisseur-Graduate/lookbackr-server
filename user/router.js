@@ -3,13 +3,12 @@ const User = require('./model')
 const router = new Router()
 
 
-//endpoint to create a user
-router.post("/users", (req, res, next) => {
+router.post("/users", (req, res) => {
     const user = {username: req.body.username}
     User
       .create(user).then(user => {
-      res.status(201).send(user);
-    });
-  });
+      res.status(201).send(user)
+    })
+  })
 
 module.exports = router
