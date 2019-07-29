@@ -10,7 +10,7 @@ This project was started by members of Codaisseur class 27.
 Check the overview readme for further information on the goals and architecture of the project HERE:  
 https://pastebin.com/p34MiD5c
 
-#Set-Up
+# Set-Up
 In order to run this App follow the following steps;
 
 1. Clone the repository using the command `git clone https://github.com/Official-Codaisseur-Graduate/lookbackr-server.git`
