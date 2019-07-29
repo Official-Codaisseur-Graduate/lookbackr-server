@@ -1,6 +1,17 @@
 # Lookbackr-server
 This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project.
 
+# Table of contents
+* Set up
+* Technologies used
+* Models and Relations
+    * Models
+    * Relational Mapping
+* API Resources
+    * Things to Note
+    * The Endpoints
+* Contributors
+
 # Set-Up
 In order to run this App follow the following steps;
 
@@ -43,17 +54,18 @@ In order to run this App follow the following steps;
 # Api Resources
 
 User can test the following endpoints in the backend by making requests via httpie to either your local server `localhost:5000` or the heroku server `https://salty-shelf-72145.herokuapp.com` 
-## Note:
+#### Note:
 This heroku server link may not be valid by the time you test. If thats the case be sure to setup your heroku server <instructions on how to do so can be seen on THINGS TO NOTE BEFORE TESTING ENDPOINTS point 4.>. Furthermore, examples on how to make request (via your localserver) are illustrated below the respective endpoints.
 
 ## THINGS TO NOTE BEFORE TESTING ENDPOINTS: 
 1. Make sure to have the httpie module installed first before testing. Use `npm install httpie` to install the relevant module. 
 
-2. If your testing locally, make sure to have your postgres database set-up and properly linked via sequelize. The standard format used for this project was `docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=secret -d postgres`
+2. If your testing locally, make sure to have your postgres database set-up and properly linked via sequelize. Setting up a postgres database using the standard format used in this project was `docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=secret -d postgres` simply copy and paste to your terminal if you want to keep it simple.
 
 3. Dont forget to start the server using the command `npm start` before making requests.
 
-4. If you want so switch testing from the heroku server, make sure to set-up your heroku server via your terminal as follows; - Use the command `heroku login` to log in,
+4. If you want so switch testing from the heroku server, make sure to set-up your heroku server via your terminal as follows; 
+- Use the command `heroku login` to log in,
 - Use the command `heroku create --region eu` to create a heroku app (NOTE: a heroku link will be given - for example `https://salty-shelf-72145.herokuapp.com` - be sure to keep this for later.)
 - Use the command `git push heroku master` to build your heroku app using the app version on the master git repository
 - Use the command `heroku open` to open your app. 
@@ -97,7 +109,8 @@ This heroku server link may not be valid by the time you test. If thats the case
 * PUT/enter-room/:id
     * Allows a user to join a room in the lobby and updating the users retroId with the associated retro id specified in the params
     * Httpie request format:
-     ` http put :5000/enter-room/:id user:='{"id":<userId>,"username": <username>}' ` IMPORTANT: Mind the qoutation marks!!!
+     ` http put :5000/enter-room/:id user:='{"id":<userId>,"username": <username>}' ` 
+     IMPORTANT: Mind the qoutation marks!!!
      * Httpie response format:
      ```{
     "done": false,
