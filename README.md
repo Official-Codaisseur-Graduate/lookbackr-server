@@ -12,7 +12,7 @@ This repository contains the server-side of the LookBackR app. It's a tool to fa
     * The Endpoints
 * [Contributors](#Contributors)
 
-#Set-up
+# Set-up
 In order to run this App follow the following steps;
 
 1. Clone the repository using the command `git clone https://github.com/Official-Codaisseur-Graduate/lookbackr-server.git`
