@@ -116,6 +116,41 @@ module.exports = RoomFactory = stream => {
       .catch(err => next(err))
   })
 
+  router.put("/reset/:id", (req, res, next) => {
+    const id = parseInt(req.params.id)
+    const user = req.body.user.id
+    console.log('REQUEST BODY UPDATE ROOM?????????????', req.body)
+    User
+      .findByPk(user)
+      .then(user => {
+        user
+          .update({ done: false })
+          .then(user => {
+            Room
+              .findByPk(id, { include: [User] })
+              .then(room => {
+                
+                room
+                  .update({ done: false })
+                  .then(() => {
+                    Room
+                      .findAll({ include: [User, Card] })
+                      .then(rooms => JSON.stringify(rooms))
+                      .then(rooms => {
+                        stream.updateInit(rooms)
+                        stream.send(rooms)
+                      })
+                  })
+              })
+              .then(() => {
+                res.status(201).json(user)
+              })
+          })
+      })
+
+      .catch(err => next(err))
+  })
+
   return router;
 };
 
