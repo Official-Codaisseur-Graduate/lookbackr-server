@@ -6,7 +6,7 @@ const Card = require('../card/model')
 const Retro = db.define(
     'retro',
     {
-        name: {
+      name: {
             type: Sequelize.STRING,
             field: 'name',
             allowNull: false
