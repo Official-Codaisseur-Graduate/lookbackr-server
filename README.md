@@ -23,22 +23,22 @@ In order to run this App follow the following steps;
 ## The models which were used for the current project include;
 
 * Retro 
-    *The Retro model contains a Name, Description, Active status and Done property 
+    * The Retro model contains a Name, Description, Active status and Done property 
 
 * User 
-    *The User model contains a Username and a Done property
+    * The User model contains a Username and a Done property
 
 * Card
-    *The card model contains a Text and a Type (being either sad, mad, glad, stop, start or keep) property
+    * The card model contains a Text and a Type (being either sad, mad, glad, stop, start or keep) property
 
 ## The relational maping between the aforementioned models is as follows;
 
 * Retro
-    *`Retro.hasMany(Card)`
-    *`Retro.hasMany(User)`
+    * `Retro.hasMany(Card)`
+    * `Retro.hasMany(User)`
 
 * User
-    *`User.hasMany(Card)`
+    * `User.hasMany(Card)`
 
 # Api Resources
 
