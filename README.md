@@ -12,7 +12,7 @@ This repository contains the server-side of the LookBackR app. It's a tool to fa
     * The Endpoints
 * [Contributors](#Contributors)
 
-
+#Set-up
 In order to run this App follow the following steps;
 
 1. Clone the repository using the command `git clone https://github.com/Official-Codaisseur-Graduate/lookbackr-server.git`
@@ -124,12 +124,12 @@ This heroku server link may not be valid by the time you test. If thats the case
     * Httpie request format:
     `http put :5000/room/1 user:='{"id":<userId>,"username": "<username>"}'` 
     * Httpie response format:
-    {
+    ```{
     "done": true,
     "id": 1,
     "retroId": 1,
     "username": "name"
-    }
+    }```
 
 * POST/cards
     * Creates a new card with a retroId and a userId 
@@ -137,13 +137,13 @@ This heroku server link may not be valid by the time you test. If thats the case
     `http post :5000/cards retroId=<retroId>  userId=<userId> text=text type=type` 
     NOTE: Type can only be one of the following; mad, sad, glad, start, stop or keep
     * Httpie response format:
-    {
+    ```{
     "id": 1,
     "retroId": 1,
     "text": "text",
     "type": "type",
     "userId": 1
-    }
+    }```
 
 
 * PUT/reset/:id
@@ -151,12 +151,12 @@ This heroku server link may not be valid by the time you test. If thats the case
     * Httpie request format:
     `http put :5000/reset/1 user:='{"id":1}'`
     * Httpie response format: 
-    {
+    ```{
     "done": false,
     "id": 1,
     "retroId": 1,
     "username": "name"
-    }
+    }```
 
 
 # Contributors
