@@ -1,7 +1,7 @@
 # Lookbackr-server
 This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project.
 
-#Set-Up
+# Set-Up
 In order to run this App follow the following steps;
 
 1. Clone the repository using the command `git clone https://github.com/Official-Codaisseur-Graduate/lookbackr-server.git`
@@ -20,31 +20,33 @@ In order to run this App follow the following steps;
 * Httpie (for testing endpoints)
 
 # Models and Relations
-The models which were used for the current project include;
+## The models which were used for the current project include;
 
 * Retro 
-The Retro model contains a Name, Description, Active status and Done property 
+    *The Retro model contains a Name, Description, Active status and Done property 
 
 * User 
-The User model contains a Username and a Done property
+    *The User model contains a Username and a Done property
 
 * Card
-The card model contains a Text and a Type (being either sad, mad, glad, stop, start or keep) property
+    *The card model contains a Text and a Type (being either sad, mad, glad, stop, start or keep) property
 
-The relational maping between the aforementioned models is as follows;
+## The relational maping between the aforementioned models is as follows;
 
 * Retro
-`Retro.hasMany(Card)`
-`Retro.hasMany(User)`
+    *`Retro.hasMany(Card)`
+    *`Retro.hasMany(User)`
 
 * User
-`User.hasMany(Card)`
+    *`User.hasMany(Card)`
 
 # Api Resources
 
-User can test the following endpoints in the backend by making requests via httpie to either your local server `localhost:5000` or the heroku server `https://salty-shelf-72145.herokuapp.com` (NOTE: this heroku server link may not be valid by the time you test. If thats the case be sure to setup your heroku server <instructions on how to do so can be seen on THINGS TO NOTE BEFORE TESTING ENDPOINTS point 4.>). Furthermore, examples on how to make request (via your localserver) are illustrated below the respective endpoints.
+User can test the following endpoints in the backend by making requests via httpie to either your local server `localhost:5000` or the heroku server `https://salty-shelf-72145.herokuapp.com` 
+## Note:
+This heroku server link may not be valid by the time you test. If thats the case be sure to setup your heroku server <instructions on how to do so can be seen on THINGS TO NOTE BEFORE TESTING ENDPOINTS point 4.>. Furthermore, examples on how to make request (via your localserver) are illustrated below the respective endpoints.
 
-THINGS TO NOTE BEFORE TESTING ENDPOINTS: 
+## THINGS TO NOTE BEFORE TESTING ENDPOINTS: 
 1. Make sure to have the httpie module installed first before testing. Use `npm install httpie` to install the relevant module. 
 
 2. If your testing locally, make sure to have your postgres database set-up and properly linked via sequelize. The standard format used for this project was `docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=secret -d postgres`
@@ -57,6 +59,7 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
 - Use the command `heroku open` to open your app. 
 - If all goes well then your server should be deployed on heroku. For the last step, simply concatenate the heroku link which was given before your endpoints for example; `http post <Heroku link goes here>/rooms name=<name> description=<description> active=<true>`
 
+## The Endpoints 
 
 * GET/stream
     * Initializes the streaming of all application data and provides the data which is logged to the stream
