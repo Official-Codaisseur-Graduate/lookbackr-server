@@ -20,7 +20,7 @@ In order to run this App follow the following steps;
 * Httpie (for testing endpoints)
 
 # Models and Relations
-## The models which were used for the current project include;
+#### The models which were used for the current project include;
 
 * Retro 
     * The Retro model contains a Name, Description, Active status and Done property 
@@ -31,7 +31,7 @@ In order to run this App follow the following steps;
 * Card
     * The card model contains a Text and a Type (being either sad, mad, glad, stop, start or keep) property
 
-## The relational maping between the aforementioned models is as follows;
+#### The relational maping between the aforementioned models is as follows;
 
 * Retro
     * `Retro.hasMany(Card)`
@@ -59,7 +59,7 @@ This heroku server link may not be valid by the time you test. If thats the case
 - Use the command `heroku open` to open your app. 
 - If all goes well then your server should be deployed on heroku. For the last step, simply concatenate the heroku link which was given before your endpoints for example; `http post <Heroku link goes here>/rooms name=<name> description=<description> active=<true>`
 
-## The Endpoints 
+# The Endpoints 
 
 * GET/stream
     * Initializes the streaming of all application data and provides the data which is logged to the stream
@@ -146,7 +146,7 @@ This heroku server link may not be valid by the time you test. If thats the case
     }
 
 
-#Contributors
+# Contributors
 * Marten Bonnema 
 * Andrew Omajuwa
 * Brigitte Hennequin
