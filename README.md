@@ -2,17 +2,17 @@
 This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project.
 
 # Table of contents
-* Set up
-* Technologies used
-* Models and Relations
+* [Set up](#Set-Up)
+* [Technologies used](#Technologies-Used)
+* [Models and Relations](#Models-and-Relations)
     * Models
     * Relational Mapping
-* API Resources
+* [API Resources](#Api-Resources)
     * Things to Note
     * The Endpoints
-* Contributors
+* [Contributors](#Contributors)
 
-# Set-Up
+
 In order to run this App follow the following steps;
 
 1. Clone the repository using the command `git clone https://github.com/Official-Codaisseur-Graduate/lookbackr-server.git`
@@ -160,7 +160,8 @@ This heroku server link may not be valid by the time you test. If thats the case
 
 
 # Contributors
-* Marten Bonnema 
-* Andrew Omajuwa
-* Brigitte Hennequin
-* Gulia Munari
+* Class 27:
+    * Marten Bonnema [Github](https://github.com/Fraxcelsior)
+    * Andrew Omajuwa [Github](https://github.com/AndrewOmajuwa)
+    * Brigitte Hennequin [Github](https://github.com/QuinB6248)
+    * Giulia Munari [Github](https://github.com/Astrid88)
