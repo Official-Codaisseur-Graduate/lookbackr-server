@@ -8,7 +8,7 @@ The deployed app (running client) can be found here: /heroku-url/
 This project was started by members of Codaisseur class 27.
 
 Check the overview readme for further information on the goals and architecture of the project HERE:  
-https://pastebin.com/p34MiD5c
+https://github.com/Official-Codaisseur-Graduate/lookbackr-client/blob/development/overview.md
 
 # Set-Up
 In order to run this App follow the following steps;
