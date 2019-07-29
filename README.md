@@ -1,6 +1,15 @@
 # Lookbackr-server
 This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project.
 
+## Preface
+This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/
+The server can be found here: /url/
+The deployed app (running client) can be found here: /heroku-url/
+This project was started by members of Codaisseur class 27.
+
+Check the overview readme for further information on the goals and architecture of the project HERE:  
+https://pastebin.com/p34MiD5c
+
 #Set-Up
 In order to run this App follow the following steps;
 
@@ -31,7 +40,7 @@ The User model contains a Username and a Done property
 * Card
 The card model contains a Text and a Type (being either sad, mad, glad, stop, start or keep) property
 
-The relational maping between the aforementioned models is as follows;
+The relational mapping between the aforementioned models is as follows;
 
 * Retro
 `Retro.hasMany(Card)`
