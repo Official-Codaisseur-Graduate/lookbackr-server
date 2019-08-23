@@ -2,10 +2,8 @@
 This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project.
 
 ## Preface
-This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/
-The server can be found here: /url/
-The deployed app (running client) can be found here: /heroku-url/
-This project was started by members of Codaisseur class 27.
+This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/ The server can be found here: /url/ The deployed app (running client) can be found here: /heroku-url/ This project was started by members of Codaisseur class 27.
+
 
 Check the overview readme for further information on the goals and architecture of the project HERE:  
 https://github.com/Official-Codaisseur-Graduate/lookbackr-client/blob/development/overview.md
@@ -54,9 +52,9 @@ The relational mapping between the aforementioned models is as follows;
 User can test the following endpoints in the backend by making requests via httpie to either your local server `localhost:5000` or the heroku server `https://salty-shelf-72145.herokuapp.com` (NOTE: this heroku server link may not be valid by the time you test. If thats the case be sure to setup your heroku server <instructions on how to do so can be seen on THINGS TO NOTE BEFORE TESTING ENDPOINTS point 4.>). Furthermore, examples on how to make request (via your localserver) are illustrated below the respective endpoints.
 
 THINGS TO NOTE BEFORE TESTING ENDPOINTS: 
-1. Make sure to have the httpie module installed first before testing. Use `npm install httpie` to install the relevant module. 
+1. Make sure to have httpie installed first before testing. Use `npm install httpie` to install the relevant module. 
 
-2. If your testing locally, make sure to have your postgres database set-up and properly linked via sequelize. The standard format used for this project was `docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=secret -d postgres`
+2. If you're testing locally, make sure to have your postgres database set-up and properly linked via sequelize. The standard format used for this project was `docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=secret -d postgres`
 
 3. Dont forget to start the server using the command `npm start` before making requests.
 
@@ -151,9 +149,10 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
     "username": "name"
     }
 
+## Contributors 
+* Class 27:
+    * [Marten Bonnema](https://github.com/Fraxcelsior)
+    * [Andrew Omajuwa](https://github.com/AndrewOmajuwa)
+    * [Brigitte Hennequin](https://github.com/QuinB6248)
+    * [Gulia Munari](https://github.com/Astrid88)
 
-#Contributors
-* Marten Bonnema 
-* Andrew Omajuwa
-* Brigitte Hennequin
-* Gulia Munari
