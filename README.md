@@ -54,9 +54,9 @@ The relational mapping between the aforementioned models is as follows;
 User can test the following endpoints in the backend by making requests via httpie to either your local server `localhost:5000` or the heroku server `https://salty-shelf-72145.herokuapp.com` (NOTE: this heroku server link may not be valid by the time you test. If thats the case be sure to setup your heroku server <instructions on how to do so can be seen on THINGS TO NOTE BEFORE TESTING ENDPOINTS point 4.>). Furthermore, examples on how to make request (via your localserver) are illustrated below the respective endpoints.
 
 THINGS TO NOTE BEFORE TESTING ENDPOINTS: 
-1. Make sure to have the httpie module installed first before testing. Use `npm install httpie` to install the relevant module. 
+1. Make sure to have httpie installed first before testing. Use `npm install httpie` to install the relevant module. 
 
-2. If your testing locally, make sure to have your postgres database set-up and properly linked via sequelize. The standard format used for this project was `docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=secret -d postgres`
+2. If you're testing locally, make sure to have your postgres database set-up and properly linked via sequelize. The standard format used for this project was `docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=secret -d postgres`
 
 3. Dont forget to start the server using the command `npm start` before making requests.
 
@@ -151,9 +151,9 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
     "username": "name"
     }
 
-
-#Contributors
-* Marten Bonnema 
-* Andrew Omajuwa
-* Brigitte Hennequin
-* Gulia Munari
+## Contributors 
+* Class 27:
+    * [Marten Bonnema](https://github.com/Fraxcelsior)
+    * [Andrew Omajuwa](https://github.com/AndrewOmajuwa)
+    * [Brigitte Hennequin](https://github.com/QuinB6248)
+    * [Gulia Munari](https://github.com/Astrid88)
