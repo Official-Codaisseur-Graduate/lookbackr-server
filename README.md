@@ -4,10 +4,11 @@ This repository contains the server-side of the LookBackR app. It's a tool to fa
 ## Preface
 This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/ The server can be found here: /url/ The deployed app (running client) can be found here: /heroku-url/ This project was started by members of Codaisseur class 27.
 
-Check the overview readme for further information on the goals and architecture of the project HERE:
+
+Check the overview readme for further information on the goals and architecture of the project HERE:  
 https://github.com/Official-Codaisseur-Graduate/lookbackr-client/blob/development/overview.md
 
-#Set-Up
+# Set-Up
 In order to run this App follow the following steps;
 
 1. Clone the repository using the command `git clone https://github.com/Official-Codaisseur-Graduate/lookbackr-server.git`
@@ -154,3 +155,4 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
     * [Andrew Omajuwa](https://github.com/AndrewOmajuwa)
     * [Brigitte Hennequin](https://github.com/QuinB6248)
     * [Gulia Munari](https://github.com/Astrid88)
+
