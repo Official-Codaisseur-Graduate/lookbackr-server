@@ -52,6 +52,7 @@ module.exports = RoomFactory = stream => {
       });
   });
 
+//finds the user with the right id, updates the retroId from the user. 
   router.put("/enter-room/:id", (req, res, next) => {
     const id = parseInt(req.params.id)
     const user = req.body.user.id
@@ -62,6 +63,10 @@ module.exports = RoomFactory = stream => {
           .update({ retroId: id })
           .then(user => {
             const updatedUser = user
+            
+//does Room excitst? Isn't it Retro?
+//finds all the rooms with the users and cards. Stringify (makes in to one large string) and updates that to the stream
+// and give the response:  updatedUser  
             Room
               .findAll({ include: [User, Card] })
               .then(rooms => JSON.stringify(rooms))

@@ -149,10 +149,24 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
     "username": "name"
     }
 
+* DELETE/room/:id
+    * You can delete a room
+    * Httpie request format:
+    `http delete :5000/room/1`
+    * Httpie response format:
+    {
+        
+    }
+
 ## Contributors 
 * Class 27:
     * [Marten Bonnema](https://github.com/Fraxcelsior)
     * [Andrew Omajuwa](https://github.com/AndrewOmajuwa)
     * [Brigitte Hennequin](https://github.com/QuinB6248)
     * [Gulia Munari](https://github.com/Astrid88)
+
+* Class 28:
+    * Diana Dias [Github](https://github.com/dianadiasds)
+    * Meryl Geugies [Github](https://github.com/MerylGeugies)
+
 
