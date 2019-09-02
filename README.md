@@ -1,5 +1,5 @@
 # Lookbackr-server
-This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project.
+This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project. Want to see to final result? [Click] (http://lookbackrr.netlify.com) here
 
 ## Preface
 This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/ The server can be found here: /url/ The deployed app (running client) can be found here: /heroku-url/ This project was started by members of Codaisseur class 27.
@@ -155,7 +155,11 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
     `http delete :5000/room/1`
     * Httpie response format:
     {
-        
+    "active": true,
+    "description": "description",
+    "done": false,
+    "id": 1,
+    "name": "username"
     }
 
 ## Contributors 
