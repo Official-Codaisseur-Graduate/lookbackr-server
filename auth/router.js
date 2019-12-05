@@ -36,10 +36,11 @@ router.post("/login", (req, res, next) => {
         }
       })
       .catch(err => {
-        console.error(err);
+        /* console.error(err);
         res.status(500).send({
-          message: "Something went wrong"
-        });
+          message: "Something went wrong" 
+		});*/
+        next(err);
       });
   } else {
     res.status(400).send({
