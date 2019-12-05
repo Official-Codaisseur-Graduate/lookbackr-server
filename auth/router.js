@@ -7,6 +7,7 @@ const auth = require("./middleware");
 const router = new Router();
 
 router.post("/login", (req, res, next) => {
+  console.log("in login");
   if (req.body.username && req.body.password) {
     // 1. find user based on username
     User.findOne({
