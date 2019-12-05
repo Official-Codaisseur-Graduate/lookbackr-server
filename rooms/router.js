@@ -3,6 +3,7 @@ const User = require("../user/model");
 const Card = require("../card/model");
 const Room = require("./model");
 const auth = require("../auth/middleware");
+const { toData } = require("../auth/jwt");
 
 module.exports = RoomFactory = stream => {
   const router = Router();
