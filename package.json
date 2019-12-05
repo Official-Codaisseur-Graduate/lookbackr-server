@@ -21,7 +21,7 @@
     "json-sse": "0.0.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^6.4.2",
-    "sequelize": "^5.10.1"
+    "sequelize": "^5.15.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
