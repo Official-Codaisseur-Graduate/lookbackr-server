@@ -131,6 +131,23 @@ module.exports = RoomFactory = stream => {
       .catch(err => next(err));
   });
 
+  router.delete("/card/:id", (req, res, next) => {
+    const id = parseInt(req.params.id);
+
+    Card.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(numDeleted => {
+        if (numDeleted) {
+          return res.status(204).end();
+        }
+        return res.status(404).end();
+      })
+      .catch(next);
+  });
+
   router.delete("/room/:id", (req, res, next) => {
     const id = parseInt(req.params.id);
     Room.destroy({
