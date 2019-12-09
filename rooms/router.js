@@ -139,13 +139,15 @@ module.exports = RoomFactory = stream => {
         id: req.params.id
       }
     })
-      .then(numDeleted => {
-        if (numDeleted) {
-          return res.status(204).end();
-        }
-        return res.status(404).end();
+      .then(card => {
+        Room.findAll({ include: [User, Card] })
+          .then(rooms => JSON.stringify(rooms))
+          .then(rooms => {
+            stream.updateInit(rooms);
+            stream.send(rooms);
+          });
       })
-      .catch(next);
+      .catch(error => next(error));
   });
 
   router.delete("/room/:id", (req, res, next) => {
@@ -156,12 +158,14 @@ module.exports = RoomFactory = stream => {
       }
     })
       .then(numDeleted => {
-        if (numDeleted) {
-          return res.status(204).end();
-        }
-        return res.status(404).end();
+        Room.findAll({ include: [User, Card] })
+          .then(rooms => JSON.stringify(rooms))
+          .then(rooms => {
+            stream.updateInit(rooms);
+            stream.send(rooms);
+          });
       })
-      .catch(next);
+      .catch(error => next(error));
   });
 
   return router;
