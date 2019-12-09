@@ -15,11 +15,14 @@ Check the [Change log](https://github.com/Official-Codaisseur-Graduate/lookbackr
 
 In order to run this App follow the following steps;
 
-1. Clone the repository using the command `git clone https://github.com/Official-Codaisseur-Graduate/lookbackr-server.git`
+1. Set up a Postgres database with docker running on port 5432 using password secret:
+   `$ docker run -p 5432:5432 --name lookbackr-server-api -e POSTGRES_PASSWORD=secret -d postgres`
 
-2. Install all the relevant dependencies using the command `npm install`
+2. Clone the repository using the command `git clone https://github.com/Official-Codaisseur-Graduate/lookbackr-server.git`
 
-3. Start the server using `npm start` or `npm run start`
+3. Install all the relevant dependencies using the command `npm install`
+
+4. Start the server using `npm start` or `npm run start`
 
 # Technologies Used
 
@@ -84,10 +87,12 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
     The initial response will be `id: 0 data: []` and the response updates everytime the stream is updated (For example when a new room is created)
 
 * POST/rooms
+
   - Creates a new retro room
     \*Httpie request format:
     `http post :5000/rooms name=<name> description=<description> active=<true>`
   - Httpie response format:
+
   ````{
   "active": true,
   "description": "description",
@@ -97,7 +102,7 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
   }```
   ````
 
-- POST/users
+* POST/users
 
   - Creates a user with an initial retroId of null
   - Httpie request format:  
@@ -114,7 +119,7 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
 
   ````
 
-  POST/login
+* POST/login
 
   - Validates user and password and provides a JWT key for a valid user
   - Httpie request format:  
@@ -127,7 +132,7 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
 
   ````
 
-- PUT/enter-room/:id
+* PUT/enter-room/:id
 
   - Allows only an authenticated user to join a room in the lobby and updating the users retroId with the associated retro id specified in the params
   - Httpie request format:
@@ -143,7 +148,7 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
 
   ````
 
-- PUT/room/:id
+* PUT/room/:id
 
   - Updates a users done property to true and the retro-rooms done property to true once every user in the room is done.
   - Httpie request format:
@@ -156,7 +161,8 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
     "username": "name"
     }
 
-- POST/cards
+* POST/cards
+
   - Creates a new card with a retroId and a userId
   - Httpie request format:  
     `http post :5000/cards retroId=<retroId> userId=<userId> text=text type=type`
@@ -189,7 +195,7 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
   - Httpie request format:
     `http delete :5000/card/<id>`
 
-- DELETE/room/:id
+* DELETE/room/:id
 
   - You can delete a room
   - Httpie request format:
