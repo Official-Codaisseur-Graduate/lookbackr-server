@@ -1,6 +1,6 @@
 # Lookbackr-server
 
-This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project. Want to see to final result? [Click](http://lookbackrr.netlify.com) here
+This repository contains the server-side of the LookBackR app. It's a tool to facilitate Codaisseur students with their retrospective meetings after a project. Want to see to final result? [Click](https://agile-citadel-00591.herokuapp.com) here
 
 ## Preface
 
