@@ -4,7 +4,7 @@ This repository contains the server-side of the LookBackR app. It's a tool to fa
 
 ## Preface
 
-This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/ The server can be found here: /url/ The deployed app (running client) can be found here: /heroku-url/ This project was started by members of Codaisseur class 27.
+This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here: https://github.com/Official-Codaisseur-Graduate/lookbackr-client. The deployed app (running client) can be found here: https://agile-citadel-00591.herokuapp.com. This project was started by members of Codaisseur class 27.
 
 Check the overview readme for further information on the goals and architecture of the project HERE:  
 https://github.com/Official-Codaisseur-Graduate/lookbackr-client/blob/development/overview.md
@@ -200,6 +200,11 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
   - You can delete a room
   - Httpie request format:
     `http delete :5000/room/<id>`
+
+## To be implemented
+
+- The /login route currently sends the userId to the frontend.
+  As this might be a security risk, restrict the endpoint from sending user id to the frontend. The frontend will also require a change to accommodate this fix.
 
 ## Contributors
 
