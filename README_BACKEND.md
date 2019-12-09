@@ -51,11 +51,11 @@ The relational mapping between the aforementioned models is as follows;
 - User
   `User.hasMany(Card)`
 
-![Image of ERD](/ERD.jpeg)
+![Image of ERD](/ERD.png)
 
 # Api Resources
 
-User can test the following endpoints in the backend by making requests via httpie to either your local server `localhost:5000` or the heroku server `https://salty-shelf-72145.herokuapp.com` (NOTE: this heroku server link may not be valid by the time you test. If thats the case be sure to setup your heroku server <instructions on how to do so can be seen on THINGS TO NOTE BEFORE TESTING ENDPOINTS point 4.>). Furthermore, examples on how to make request (via your localserver) are illustrated below the respective endpoints.
+User can test the following endpoints in the backend by making requests via httpie to either your local server `localhost:5000` or the heroku server `https://agile-citadel-00591.herokuapp.com` (NOTE: this heroku server link may not be valid by the time you test. If thats the case be sure to setup your heroku server <instructions on how to do so can be seen on THINGS TO NOTE BEFORE TESTING ENDPOINTS point 4.>). Furthermore, examples on how to make request (via your localserver) are illustrated below the respective endpoints.
 
 THINGS TO NOTE BEFORE TESTING ENDPOINTS:
 
