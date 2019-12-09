@@ -22,6 +22,7 @@ In order to run this App follow the following steps;
 # Technologies Used
 
 - Json-sse
+- jsonwebtoken
 - Body-Parser
 - Cors
 - Express
@@ -67,7 +68,7 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
 
 4. If you want so switch testing from the heroku server, make sure to set-up your heroku server via your terminal as follows; - Use the command `heroku login` to log in,
 
-- Use the command `heroku create --region eu` to create a heroku app (NOTE: a heroku link will be given - for example `https://salty-shelf-72145.herokuapp.com` - be sure to keep this for later.)
+- Use the command `heroku create --region eu` to create a heroku app (NOTE: a heroku link will be given - for example `https://agile-citadel-00591.herokuapp.com` - be sure to keep this for later.)
 - Use the command `git push heroku master` to build your heroku app using the app version on the master git repository
 - Use the command `heroku open` to open your app.
 - If all goes well then your server should be deployed on heroku. For the last step, simply concatenate the heroku link which was given before your endpoints for example; `http post <Heroku link goes here>/rooms name=<name> description=<description> active=<true>`
@@ -98,7 +99,7 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
 
   - Creates a user with an initial retroId of null
   - Httpie request format:  
-    `http post :5000/users username=<name>`
+    `http post :5000/users username=<name> password=<password>`
   - Httpie response format:
 
   ````{
@@ -106,15 +107,29 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
   "id": 1,
   "retroId": null,
   "username": "username"
+  "password": "$2a$10$rqVbpQxhfa6gp7Lr7mjyfe6esaloAscChby8BPB7HUsLa/PpiH9Bi"
+  }```
+
+  ````
+
+  POST/login
+
+  - Validates user and password and provides a JWT key for a valid user
+  - Httpie request format:  
+    `http post :5000/login username=<name> password=<password>`
+  - Httpie response format:
+
+  ````{
+  "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTUzNTM2MjIzMCwiZXhwIjoxNTM1MzY5NDMwfQ.DxFRClbZLP0L-fczkSiNHEiLqYI4HGbC8Ezrh3JhlG8"
   }```
 
   ````
 
 - PUT/enter-room/:id
 
-  - Allows a user to join a room in the lobby and updating the users retroId with the associated retro id specified in the params
+  - Allows only an authenticated user to join a room in the lobby and updating the users retroId with the associated retro id specified in the params
   - Httpie request format:
-    `http put :5000/enter-room/:id user:='{"id":<userId>,"username": <username>}'` IMPORTANT: Mind the qoutation marks!!!
+    `http put :5000/room/1 "Authorization":"Bearer ""<jwt>"` IMPORTANT: Mind the qoutation marks!!!
   - Httpie response format:
 
   ````{
@@ -166,18 +181,17 @@ THINGS TO NOTE BEFORE TESTING ENDPOINTS:
     "username": "name"
     }
 
-* DELETE/room/:id
+* DELETE/card/:id
+
+  - You can delete a card
+  - Httpie request format:
+    `http delete :5000/card/1`
+
+- DELETE/room/:id
+
   - You can delete a room
   - Httpie request format:
     `http delete :5000/room/1`
-  - Httpie response format:
-    {
-    "active": true,
-    "description": "description",
-    "done": false,
-    "id": 1,
-    "name": "username"
-    }
 
 ## Contributors
 
