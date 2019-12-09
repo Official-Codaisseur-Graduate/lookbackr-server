@@ -9,6 +9,8 @@ This readme contains a global overview of the LookBackR project, describing the 
 Check the overview readme for further information on the goals and architecture of the project HERE:  
 https://github.com/Official-Codaisseur-Graduate/lookbackr-client/blob/development/overview.md
 
+Check the [Change log](https://github.com/Official-Codaisseur-Graduate/lookbackr-server/blob/readmefix/CHANGELOG.md) for details on the changes implemented by Class-32.
+
 # Set-Up
 
 In order to run this App follow the following steps;
